@@ -1,19 +1,17 @@
-import { Application, Sprite } from 'pixi.js'
+import {Application} from 'pixi.js';
+// import {TickerClampyScene} from "./scenes/ticker-clampy.scene";
+// import {AnimatedSpriteScene} from "./scenes/animated-sprite.scene";
+import {TweenScene} from "./scenes/tween.scene";
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
 	backgroundColor: 0x6495ed,
-	width: 640,
-	height: 480
+	width: 960,
+	height: 720
 });
 
-const clampy: Sprite = Sprite.from("clampy.png");
-
-clampy.anchor.set(0.5);
-
-clampy.x = app.screen.width / 2;
-clampy.y = app.screen.height / 2;
-
-app.stage.addChild(clampy);
+// app.stage.addChild(new AnimatedSpriteScene());
+// app.stage.addChild(new TickerClampyScene(app.screen.width, app.screen.height));
+app.stage.addChild(new TweenScene(app.screen.width, app.screen.height));
